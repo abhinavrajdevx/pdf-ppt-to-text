@@ -45,7 +45,6 @@ const convertToGreyScale = async (imagePath: string) => {
 };
 
 async function main() {
-  let output_text = "";
   const pdfFilePath = "./test-assets//sample.pdf";
   const pdf_to_image_path = await convertPdfToImage(pdfFilePath);
 
@@ -58,7 +57,6 @@ async function main() {
   const {
     data: { text },
   } = await worker.recognize(greyscale_image_path);
-  output_text = text;
   await worker.terminate();
 
   console.log(text);
