@@ -6,12 +6,12 @@ On Mac :
 
 Install Homebrew and run :
 
-npm run install-pre
+    npm run install-pre
 
 On Ubuntu :
 
-sudo apt-get install graphicsmagick
-sudo apt-get install imagemagick
+    sudo apt-get install graphicsmagick
+    sudo apt-get install imagemagick
 
 On Windows download assets from the given links:
 http://www.graphicsmagick.org/download.html
