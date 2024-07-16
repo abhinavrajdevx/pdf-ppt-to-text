@@ -5,11 +5,9 @@
 On Mac :
 
 1. Install Homebrew and run :
-
    npm run install-pre
 
 2. On Ubuntu :
-
    sudo apt-get install graphicsmagick
    sudo apt-get install imagemagick
 
