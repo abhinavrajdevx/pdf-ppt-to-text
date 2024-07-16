@@ -1,0 +1,38 @@
+{
+  "name": "pdf-ppt-to-text",
+  "version": "1.0.0",
+  "description": "converting pts and pdfs to text in nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx tsc && node build/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abhinavrajdevx/pdf-ppt-to-text.git"
+  },
+  "keywords": [
+    "ai",
+    "ppt",
+    "to",
+    "ai",
+    "convertor",
+    "pdf",
+    "to",
+    "text",
+    "convertor"
+  ],
+  "author": "abhinavrajdevx",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abhinavrajdevx/pdf-ppt-to-text/issues"
+  },
+  "homepage": "https://github.com/abhinavrajdevx/pdf-ppt-to-text#readme",
+  "devDependencies": {
+    "typescript": "^5.5.3"
+  },
+  "dependencies": {
+    "image-js": "^0.35.6",
+    "tesseract.js": "^5.1.0"
+  }
+}
