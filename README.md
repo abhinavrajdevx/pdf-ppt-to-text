@@ -4,16 +4,18 @@
 
 On Mac :
 
-1. Install Homebrew and run :
-   npm run install-pre
+Install Homebrew and run :
 
-2. On Ubuntu :
-   sudo apt-get install graphicsmagick
-   sudo apt-get install imagemagick
+npm run install-pre
 
-3. On Windows download assets from the given links:
-   http://www.graphicsmagick.org/download.html
-   https://www.imagemagick.org/script/download.php
+On Ubuntu :
+
+sudo apt-get install graphicsmagick
+sudo apt-get install imagemagick
+
+On Windows download assets from the given links:
+http://www.graphicsmagick.org/download.html
+https://www.imagemagick.org/script/download.php
 
 # build
 
