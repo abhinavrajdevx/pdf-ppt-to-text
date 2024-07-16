@@ -2,22 +2,32 @@ import { createWorker } from "tesseract.js";
 import { Image } from "image-js";
 import { fromPath } from "pdf2pic";
 
-const convertPdfToImage = async () => {
+const convertPdfToImage = async (
+  pdfFilePath: string
+): Promise<string | undefined> => {
+  const saveFilename = "pdf-to-image-" + Date.now();
+
   const options = {
     density: 100,
-    saveFilename: "untitled",
-    savePath: "./",
+    saveFilename,
+    savePath: "./program-cache",
     format: "png",
     preserveAspectRatio: true,
   };
 
-  const convert = fromPath("./test-assets//sample.pdf", options);
+  const convert = fromPath(pdfFilePath, options);
   const pageToConvertAsImage = 1;
 
-  convert(pageToConvertAsImage, { responseType: "image" }).then((resolve) => {
+  const { path } = await convert(pageToConvertAsImage, {
+    responseType: "image",
+  }).then((resolve) => {
     console.log("Page 1 is now converted as image");
-    //   return resolve;
+
+    return resolve;
   });
+  // pdf-to-image-1721101766815.1.png
+  console.log(saveFilename);
+  return path;
 };
 
 const convertToGreyScale = async (imagePath: string) => {
@@ -35,20 +45,22 @@ const convertToGreyScale = async (imagePath: string) => {
 };
 
 async function main() {
-  await convertPdfToImage();
-  return;
-  const imagePath = "./test-assets/image.png";
-  const greyscale_image_path = await convertToGreyScale(imagePath);
+  let output_text = "";
+  const pdfFilePath = "./test-assets//sample.pdf";
+  const pdf_to_image_path = await convertPdfToImage(pdfFilePath);
 
-  const worker = await createWorker("eng");
+  //@ts-ignore
+  const greyscale_image_path = await convertToGreyScale(pdf_to_image_path);
 
-  (async () => {
-    await worker.load();
-    const {
-      data: { text },
-    } = await worker.recognize(greyscale_image_path);
-    console.log(text);
-    await worker.terminate();
-  })();
+  const worker = await createWorker();
+
+  await worker.load();
+  const {
+    data: { text },
+  } = await worker.recognize(greyscale_image_path);
+  output_text = text;
+  await worker.terminate();
+
+  console.log(text);
 }
 main();
