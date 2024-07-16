@@ -1,1 +1,26 @@
 # pdf-ppt-to-text
+
+# SETUP
+
+On Mac :
+
+1. Install Homebrew and run :
+
+   npm run install-pre
+
+2. On Ubuntu :
+
+   sudo apt-get install graphicsmagick
+   sudo apt-get install imagemagick
+
+3. On Windows download assets from the given links:
+   http://www.graphicsmagick.org/download.html
+   https://www.imagemagick.org/script/download.php
+
+# build
+
+    npm install
+
+# run
+
+    npm run dev

@@ -1,5 +1,24 @@
 import { createWorker } from "tesseract.js";
 import { Image } from "image-js";
+import { fromPath } from "pdf2pic";
+
+const convertPdfToImage = async () => {
+  const options = {
+    density: 100,
+    saveFilename: "untitled",
+    savePath: "./",
+    format: "png",
+    preserveAspectRatio: true,
+  };
+
+  const convert = fromPath("./test-assets//sample.pdf", options);
+  const pageToConvertAsImage = 1;
+
+  convert(pageToConvertAsImage, { responseType: "image" }).then((resolve) => {
+    console.log("Page 1 is now converted as image");
+    //   return resolve;
+  });
+};
 
 const convertToGreyScale = async (imagePath: string) => {
   let image = await Image.load(imagePath);
@@ -16,6 +35,8 @@ const convertToGreyScale = async (imagePath: string) => {
 };
 
 async function main() {
+  await convertPdfToImage();
+  return;
   const imagePath = "./test-assets/image.png";
   const greyscale_image_path = await convertToGreyScale(imagePath);
 
